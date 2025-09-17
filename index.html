@@ -14,44 +14,41 @@
       --accent:#00ffd1;
       --muted:#9aa3a8;
       --white:#ffffff;
-      --card-size:1080px; /* útil si quieres render fijo */
       --glass: rgba(255,255,255,0.03);
     }
 
     /* Reset mínimo */
     *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%}
     body{
       background:var(--bg);
-      display:flex;
-      align-items:center;
-      justify-content:center;
       font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
       padding:20px;
+      line-height:1.4;
     }
 
-    /* Contenedor cuadrado */
+    /* Contenedor */
+    .wrapper{
+      max-width:1080px;
+      margin:0 auto;
+    }
+
     .card{
       width:100%;
-      max-width:var(--card-size);
-      aspect-ratio:1/1;
       position:relative;
       color:var(--white);
       overflow:hidden;
       border-radius:18px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.12));
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.12));
       box-shadow: 0 10px 30px rgba(0,0,0,0.6);
       padding:48px;
       display:flex;
       gap:24px;
-      align-items:center;
-      justify-content:space-between;
+      flex-wrap:wrap;
     }
 
-    /* Patrón de código en el fondo (sutil) */
+    /* Patrón de código en el fondo */
     .card::before{
       content:"";
       position:absolute;
@@ -66,9 +63,8 @@
       opacity:0.7;
     }
 
-    /* Left block: textos */
     .left{
-      width:62%;
+      flex:1 1 60%;
       z-index:2;
       display:flex;
       flex-direction:column;
@@ -85,6 +81,7 @@
       display:flex;
       align-items:center;
       gap:12px;
+      flex-wrap:wrap;
     }
 
     /* cursor parpadeante */
@@ -121,9 +118,8 @@
       letter-spacing:0.6px;
     }
 
-    /* Right block: badge de precio + CTA */
     .right{
-      width:34%;
+      flex:1 1 30%;
       z-index:2;
       display:flex;
       flex-direction:column;
@@ -167,6 +163,11 @@
       text-decoration:none;
       font-size:14px;
       letter-spacing:1px;
+      transition:all .3s ease;
+    }
+    .cta:hover{
+      background:var(--accent);
+      color:var(--bg);
     }
 
     .footer-note{
@@ -176,7 +177,7 @@
       max-width:260px;
     }
 
-    /* small glitch accent behind title */
+    /* glitch */
     .glitch {
       position:relative;
       display:inline-block;
@@ -202,46 +203,48 @@
     @keyframes gl1 { 0%{transform:translate(-2px,-1px)}50%{transform:translate(1px,1px)}100%{transform:translate(-2px,-1px)} }
     @keyframes gl2 { 0%{transform:translate(1px,2px)}50%{transform:translate(-1px,-1px)}100%{transform:translate(1px,2px)} }
 
-    /* Responsive / visual tweaks */
+    /* Responsive */
     @media (max-width:900px){
-      .card{ padding:28px; gap:12px; flex-direction:column; aspect-ratio: 4/5;}
+      .card{ padding:28px; gap:20px; flex-direction:column;}
       .left, .right{ width:100%; align-items:flex-start }
       .right{ align-items:flex-start; }
       .price-badge{ align-self:flex-start }
-      .title{ font-size:36px }
+      .title{ font-size:32px }
       .price{ font-size:28px }
     }
   </style>
 </head>
 <body>
-  <div class="card" role="img" aria-label="Anuncio curso ciberseguridad">
-    <div class="left">
-      <div class="title">
-        <span class="glitch" data-text="CURSO: ANÁLISIS DE BINs">&nbsp;CURSO: ANÁLISIS DE BINs&nbsp;</span>
-        <div class="cursor" aria-hidden="true"></div>
+  <div class="wrapper">
+    <div class="card" role="img" aria-label="Anuncio curso ciberseguridad">
+      <div class="left">
+        <div class="title">
+          <span class="glitch" data-text="CURSO: ANÁLISIS DE BINs">&nbsp;CURSO: ANÁLISIS DE BINs&nbsp;</span>
+          <div class="cursor" aria-hidden="true"></div>
+        </div>
+
+        <div class="subtitle">
+          2 videos prácticos — desde cero, sin conocimientos previos. Enfocado en prevención de fraude y análisis legítimo de BINs.
+        </div>
+
+        <div class="tags">
+          <span class="tag">100% legal</span>
+          <span class="tag">Desde 0</span>
+          <span class="tag">Certificado</span>
+        </div>
       </div>
 
-      <div class="subtitle">
-        2 videos prácticos — desde cero, sin conocimientos previos. Enfocado en prevención de fraude y análisis legítimo de BINs.
-      </div>
+      <div class="right">
+        <div class="price-badge" role="status" aria-live="polite">
+          <div class="price-label">PRECIO</div>
+          <div class="price">X $350 MXN</div>
+        </div>
 
-      <div class="tags">
-        <span class="tag">100% legal</span>
-        <span class="tag">Desde 0</span>
-        <span class="tag">Certificado</span>
-      </div>
-    </div>
+        <a class="cta" href="#" onclick="event.preventDefault()">INSCRÍBETE AHORA</a>
 
-    <div class="right">
-      <div class="price-badge" role="status" aria-live="polite">
-        <div class="price-label">PRECIO</div>
-        <div class="price">X $350 MXN</div>
-      </div>
-
-      <a class="cta" href="#" onclick="event.preventDefault()">INSCRÍBETE AHORA</a>
-
-      <div class="footer-note">
-        Próximamente más contenido. Cupos limitados.
+        <div class="footer-note">
+          Próximamente más contenido. Cupos limitados.
+        </div>
       </div>
     </div>
   </div>
