@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="es">
 <head>
@@ -5,7 +6,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Post - Curso Ciberseguridad</title>
 
-  <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -17,18 +17,13 @@
       --glass: rgba(255,255,255,0.03);
     }
 
-    /* Reset mínimo */
     *{box-sizing:border-box;margin:0;padding:0}
     body{
       background:var(--bg);
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
+      font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
       padding:20px;
-      line-height:1.4;
     }
 
-    /* Contenedor */
     .wrapper{
       max-width:1080px;
       margin:0 auto;
@@ -40,15 +35,14 @@
       color:var(--white);
       overflow:hidden;
       border-radius:18px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.12));
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      background:linear-gradient(180deg,rgba(255,255,255,0.01),rgba(0,0,0,0.12));
+      box-shadow:0 10px 30px rgba(0,0,0,0.6);
       padding:48px;
       display:flex;
       gap:24px;
       flex-wrap:wrap;
     }
 
-    /* Patrón de código en el fondo */
     .card::before{
       content:"";
       position:absolute;
@@ -72,19 +66,18 @@
     }
 
     .title{
-      font-family: "Inconsolata", monospace;
+      font-family:"Inconsolata",monospace;
       font-weight:700;
       letter-spacing:4px;
       font-size:48px;
-      line-height:1.02;
+      line-height:1.1;
       color:var(--accent);
       display:flex;
       align-items:center;
-      gap:12px;
       flex-wrap:wrap;
+      gap:12px;
     }
 
-    /* cursor parpadeante */
     .cursor{
       width:10px;
       height:34px;
@@ -93,7 +86,7 @@
       animation:blink 1s steps(1) infinite;
       border-radius:2px;
     }
-    @keyframes blink{ 50%{ opacity:0 } }
+    @keyframes blink{50%{opacity:0}}
 
     .subtitle{
       font-size:18px;
@@ -128,7 +121,7 @@
     }
 
     .price-badge{
-      background:linear-gradient(180deg, rgba(0,0,0,0.35), rgba(255,255,255,0.02));
+      background:linear-gradient(180deg,rgba(0,0,0,0.35),rgba(255,255,255,0.02));
       padding:14px 20px;
       border-radius:12px;
       border:1px solid rgba(0,255,209,0.12);
@@ -145,7 +138,7 @@
       letter-spacing:1px;
     }
     .price{
-      font-family: "Inconsolata", monospace;
+      font-family:"Inconsolata",monospace;
       color:var(--white);
       font-size:36px;
       letter-spacing:2px;
@@ -177,18 +170,13 @@
       max-width:260px;
     }
 
-    /* glitch */
-    .glitch {
-      position:relative;
-      display:inline-block;
-    }
-    .glitch::after, .glitch::before{
-      content: attr(data-text);
+    .glitch{position:relative;display:inline-block;}
+    .glitch::after,.glitch::before{
+      content:attr(data-text);
       position:absolute;
-      left:0; top:0;
+      left:0;top:0;
       clip-path:polygon(0 0,100% 0,100% 40%,0 40%);
       opacity:0.6;
-      transform:translate(0,0);
     }
     .glitch::before{
       color:#ff3b8a;
@@ -200,27 +188,26 @@
       mix-blend-mode:screen;
       animation:gl2 2.9s infinite linear;
     }
-    @keyframes gl1 { 0%{transform:translate(-2px,-1px)}50%{transform:translate(1px,1px)}100%{transform:translate(-2px,-1px)} }
-    @keyframes gl2 { 0%{transform:translate(1px,2px)}50%{transform:translate(-1px,-1px)}100%{transform:translate(1px,2px)} }
+    @keyframes gl1{0%{transform:translate(-2px,-1px)}50%{transform:translate(1px,1px)}100%{transform:translate(-2px,-1px)}}
+    @keyframes gl2{0%{transform:translate(1px,2px)}50%{transform:translate(-1px,-1px)}100%{transform:translate(1px,2px)}}
 
-    /* Responsive */
-    @media (max-width:900px){
-      .card{ padding:28px; gap:20px; flex-direction:column;}
-      .left, .right{ width:100%; align-items:flex-start }
-      .right{ align-items:flex-start; }
-      .price-badge{ align-self:flex-start }
-      .title{ font-size:32px }
-      .price{ font-size:28px }
+    @media(max-width:900px){
+      .card{padding:28px;gap:20px;flex-direction:column;}
+      .left,.right{width:100%;align-items:flex-start}
+      .right{align-items:flex-start}
+      .price-badge{align-self:flex-start}
+      .title{font-size:32px}
+      .price{font-size:28px}
     }
   </style>
 </head>
 <body>
   <div class="wrapper">
-    <div class="card" role="img" aria-label="Anuncio curso ciberseguridad">
+    <div class="card">
       <div class="left">
         <div class="title">
           <span class="glitch" data-text="CURSO: ANÁLISIS DE BINs">&nbsp;CURSO: ANÁLISIS DE BINs&nbsp;</span>
-          <div class="cursor" aria-hidden="true"></div>
+          <div class="cursor"></div>
         </div>
 
         <div class="subtitle">
@@ -235,12 +222,12 @@
       </div>
 
       <div class="right">
-        <div class="price-badge" role="status" aria-live="polite">
+        <div class="price-badge">
           <div class="price-label">PRECIO</div>
           <div class="price">X $350 MXN</div>
         </div>
 
-        <a class="cta" href="#" onclick="event.preventDefault()">INSCRÍBETE AHORA</a>
+        <a class="cta" href="#">INSCRÍBETE AHORA</a>
 
         <div class="footer-note">
           Próximamente más contenido. Cupos limitados.
